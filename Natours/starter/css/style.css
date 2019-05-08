@@ -10,7 +10,7 @@ Dark green: #28b485
 * {
   padding: 0;
   margin: 0;
-  box-sizing : border-box;
+  box-sizing: border-box;
 }
 
 /* following are font properties , they are inherited so can be done in body and 
@@ -21,20 +21,56 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: #777;
-  padding : 30px; /* it cause a slider because look like box-sizing is*/
+  padding: 30px; /* it cause a slider because look like box-sizing is*/
 }
 
 .header {
   height: 95vh;
+
+  /* gradient + background image*/
   background-image: linear-gradient(
       to right,
       rgba(126, 213, 111, 0.8),
       rgba(40, 180, 133, 0.8)
     ),
     url("../img/hero.jpg");
+
   /* background-size: cover -> responsive background width to some extent */
   background-size: cover;
+
   /* background-position: top --> change height but the top background will stay on top and not cropped */
   background-position: top;
-  clip-path: polygon(0 0 , 100% 0 , 100%  75vh , 0 100%);
+
+  /* very nice effect */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo {
+  /* width is set by browser by setting height or vice versa but why */
+  height: 35px;
+}
+
+.logo-box {
+  padding-left: 40px;
+  padding-top: 40px;
+  /* 
+        that's what Jonas does but i see no reason for this , padding-left, padding-top looks good
+    position : absolute;
+    top:40px;
+    left:40px; */
+}
+
+.heading-primary {
+  color: white;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
 }
