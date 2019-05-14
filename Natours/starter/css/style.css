@@ -13,7 +13,7 @@ Dark green: #28b485
   box-sizing: border-box;
 }
 
-/* following are font properties , they are inherited so can be done in body and 
+/* following are font properties , they are inherited (but not all of them) so can be done in body and 
     inheritd by its ancestors */
 body {
   font-family: "Lato", sans-serif;
@@ -54,23 +54,88 @@ body {
   padding-left: 40px;
   padding-top: 40px;
   /* 
-        that's what Jonas does but i see no reason for this , padding-left, padding-top looks good
+        following is what Jonas does but i see no reason for this , padding-left, padding-top looks good
     position : absolute;
     top:40px;
     left:40px; */
 }
 
+/* not working as expected on hover --> why ???? but anyway not used later
+ .logo-box :hover {
+  animation: moveInRight 1s ease-out;
+} */
+
 .heading-primary {
   color: white;
   text-transform: uppercase;
+
+  /* 
+    animation is a bit shakey at the end so 
+    backface-visibility: hidden will prevent this 
+   */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
-    display: block;
-    font-size: 60px;
-    letter-spacing: 35px;
+  display: block;
+  font-size: 60px;
+  letter-spacing: 35px;
+  font-weight: 400;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  /* animation-delay: 3s; --> start animation after this number */
+  /* animation-iteration-count: 3; ---> perform animation in a loop */
+  animation-timing-function: ease-out;
+}
+
+/* appears from left to right */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .heading-primary-sub {
-    display: block;
+  display: block;
+  font-size: 20px;
+  letter-spacing: 17.4px;
+  font-weight: 700;
+  animation: moveInRight 1s ease-out;
+}
+
+/* appears from right to left */
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.text-box {
+  /* why it is working only with position ???   */
+  position: absolute;
+  /* top and left is with relation to the element father */
+  top: 50%;
+  left: 50%;
+  /* -50% relates to the width and height of this element */
+  transform: translate(-50%, -50%);
 }
