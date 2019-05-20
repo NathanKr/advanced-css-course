@@ -7,21 +7,43 @@ Dark green: #28b485
 
 */
 
-* {
+* , 
+*::after ,
+ *::before{
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: inherit ;/*  we give border-box in body */
 }
+
+  html {
+  /* 
+    use 10px so it will be easy to compute e.g. in body 1.6rem which is 1.6*10 i.e. 16 px 
+    THIS IS THE ONLY PLACE TO USE px ALL OTHER USES rem
+    change here and ONLY here so ALL rem based dimensions : font-size , padding , ... 
+    will have diffrent pixel size
+
+    This is a pillar of responsive web design
+  */
+
+    /* font-size: 10px; -> not used because it will not allow the user to change in browser 
+       default brwoser is 16px so to get 10px we use 10*100/16 = 62.5%
+    */
+
+    font-size: 62.5%;
+} 
+
+/* nameing conventions used here is  BEM : Block , Element , Modifier */
 
 /* following are font properties , they are inherited (but not all of them) so can be done in body and 
     inheritd by its ancestors */
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.7;
   color: #777;
-  padding: 30px; /* it cause a slider because look like box-sizing is*/
+  padding: 3rem; /* it cause a slider because look like box-sizing is*/
+  box-sizing: border-box;
 }
 
 .header {
@@ -45,14 +67,14 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo {
+.header__logo {
   /* width is set by browser by setting height or vice versa but why */
-  height: 35px;
+  height: 3.5rem;
 }
 
-.logo-box {
-  padding-left: 40px;
-  padding-top: 40px;
+.header__logo-box {
+  padding-left: 4rem;
+  padding-top: 4rem;
   /* 
         following is what Jonas does but i see no reason for this , padding-left, padding-top looks good
     position : absolute;
@@ -74,13 +96,13 @@ body {
     backface-visibility: hidden will prevent this 
    */
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
-.heading-primary-main {
-  display: block;
-  font-size: 60px;
-  letter-spacing: 35px;
+.heading-primary--main {
+  display: block; 
+  font-size: 6rem;
+  letter-spacing: 3.5rem;
   font-weight: 400;
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -94,11 +116,11 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -107,10 +129,10 @@ body {
   }
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
-  letter-spacing: 17.4px;
+  font-size: 2rem;
+  letter-spacing: 1.75rem;
   font-weight: 700;
   animation: moveInRight 1s ease-out;
 }
@@ -119,11 +141,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -132,7 +154,7 @@ body {
   }
 }
 
-.text-box {
+.header__text-box {
   /* why it is working only with position ???   */
   position: absolute;
   /* top and left is with relation to the element father */
@@ -146,9 +168,9 @@ body {
 .btn {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* position is relative because btn::after is considered a child of btn 
      and we want him to be absolute which is measued from neareset relatibe ancestor */
   position: relative;
@@ -156,23 +178,23 @@ body {
 
 
 
-.btn-white {
+.btn--white {
   background-color: white;
   color: #777;
 }
 
 .btn:hover{
-  transform: translateY(-3px);
+  transform: translateY(-0.3rem);
   /* box-shadow : horizontal offset , vertical offset , blur , spread */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
 }
 
 
 /* button is active on click */
 .btn:active{
-  transform: translateY(1px) ;
+  transform: translateY(0.1rem) ;
   /* box-shadow : horizontal offset , vertical offset , blur , spread */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6);
 }
 
 /* we use .btn::after but we actually put it behined the btn using absolute */
@@ -182,14 +204,14 @@ body {
    /* height and width is 100% to be same as ancestor i.e. .btn */
    height: 100%;
    width: 100%;
-   border-radius: 100px;
+   border-radius: 10rem;
    position: absolute;
    top:0;
    left:0;
    z-index: -1;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: white;
   transition: all 0.6s;
 }
@@ -203,7 +225,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   
@@ -213,7 +235,7 @@ body {
   }
 }
 
-.btn-animated{
+.btn--animated{
   animation: moveInBottom 0.5s ease-out;
   /*not clear why Jonas use this animation-fill-mode: backwards; */
 }
