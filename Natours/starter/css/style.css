@@ -146,6 +146,13 @@ body {
     animation: moveInBottom 0.5s ease-out;
     /*not clear why Jonas use this animation-fill-mode: backwards; */ }
 
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+
 .header {
   height: 95vh;
   /* gradient + background image*/

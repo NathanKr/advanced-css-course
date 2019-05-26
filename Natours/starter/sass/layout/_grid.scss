@@ -2,5 +2,15 @@
 
   // in _base.scss we have font-size default is 10px so in this case 114 rem is 1140px
   // according to jonas 114 rem is common for grid
-  max-width : 114rem;
+  max-width : $grid-width;
+  background-color: #eee;
+
+  // center grid horizontally : margin-left and margin-right are set to auto so browser will make the same 
+  margin: 0 auto;
+
+  &:not(:last-child){
+  // trial and error i saw that order is important -> margin-bottom after margin override it
+  margin-bottom: $gutter-vertical;
+  }
+  
 }
