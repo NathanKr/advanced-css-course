@@ -1,0 +1,28 @@
+// _base.scss is a partial sass file : it starts with _ and can be imported to other sass files
+
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit; /*  we give border-box in body */
+}
+
+html {
+  /* 
+    use 10px so it will be easy to compute e.g. in body 1.6rem which is 1.6*10 i.e. 16 px 
+    THIS IS THE ONLY PLACE TO USE px ALL OTHER USES rem
+    change here and ONLY here so ALL rem based dimensions : font-size , padding , ... 
+    will have diffrent pixel size
+
+    This is a pillar of responsive web design
+  */
+
+  /* font-size: 10px; -> not used because it will not allow the user to change in browser 
+       default brwoser is 16px so to get 10px we use 10*100/16 = 62.5%
+    */
+
+  font-size: 62.5%;
+}
+

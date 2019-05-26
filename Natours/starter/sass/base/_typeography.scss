@@ -1,0 +1,51 @@
+// _typeography.scss is a partial sass file : it starts with _ and can be imported to other sass files
+
+// Jonas has decided that .heading-primary belong to _typeography.scss but i dont feel this way
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  /* 
+      animation is a bit shakey at the end so 
+      backface-visibility: hidden will prevent this 
+     */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  // translated to .heading-primary--main
+  &--main {
+    display: block;
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+    font-weight: 400;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* animation-delay: 3s; --> start animation after this number */
+    /* animation-iteration-count: 3; ---> perform animation in a loop */
+    animation-timing-function: ease-out;
+  }
+
+  // translated to .heading-primary--sub
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 1.75rem;
+    font-weight: 700;
+    animation: moveInRight 1s ease-out;
+  }
+}
+
+/* nameing conventions used here is  BEM : Block , Element , Modifier */
+
+/* following are font properties , they are inherited (but not all of them) so can be done in body and 
+    inheritd by its ancestors */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem; /* it cause a slider because look like box-sizing is*/
+  box-sizing: border-box;
+}

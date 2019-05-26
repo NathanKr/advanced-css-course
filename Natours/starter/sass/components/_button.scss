@@ -1,0 +1,71 @@
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  /* position is relative because btn::after is considered a child of btn 
+     and we want him to be absolute which is measued from neareset relatibe ancestor */
+  position: relative;
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    // this is translated to .btn--white::after
+    &::after {
+      background-color: $color-white;
+      transition: all 0.6s;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    /* box-shadow : horizontal offset , vertical offset , blur , spread */
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.6);
+
+    // translated to .btn:hover::after
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* button is active on click */
+  &:active {
+    transform: translateY(0.1rem);
+    /* box-shadow : horizontal offset , vertical offset , blur , spread */
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.6);
+  }
+
+  /* we use .btn::after but we actually put it behined the btn using absolute */
+  &::after {
+    content: ""; /*according to jonas must be event if is empty */
+    display: inline-block; /*  same as .btn */
+    /* height and width is 100% to be same as ancestor i.e. .btn */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+
+  
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out;
+    /*not clear why Jonas use this animation-fill-mode: backwards; */
+  }
+
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out;
+    /*not clear why Jonas use this animation-fill-mode: backwards; */
+  }
+}
+
+
+

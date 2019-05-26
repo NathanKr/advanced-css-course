@@ -1,0 +1,49 @@
+.header {
+    height: 95vh;
+  
+    /* gradient + background image*/
+    background-image: linear-gradient(
+        to right,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url("../img/hero.jpg");
+  
+    /* background-size: cover -> responsive background width to some extent */
+    background-size: cover;
+  
+    /* background-position: top --> change height but the top background will stay on top and not cropped */
+    background-position: top;
+  
+    /* very nice effect */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  
+    // translated to .header__logo
+    &__logo {
+      /* width is set by browser by setting height or vice versa but why */
+      height: 3.5rem;
+    }
+  
+    // translated to .header__logo-box
+    &__logo-box {
+      padding-left: 4rem;
+      padding-top: 4rem;
+      /* 
+            following is what Jonas does but i see no reason for this , padding-left, padding-top looks good
+        position : absolute;
+        top:40px;
+        left:40px; */
+    }
+  
+    // translated to .header__text-box
+    &__text-box {
+      /* why it is working only with position ???   */
+      position: absolute;
+      /* top and left is with relation to the element father */
+      top: 50%;
+      left: 50%;
+      /* -50% relates to the width and height of this element */
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }

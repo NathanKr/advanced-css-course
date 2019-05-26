@@ -6,102 +6,6 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: inherit;
-  /*  we give border-box in body */ }
-
-html {
-  /* 
-    use 10px so it will be easy to compute e.g. in body 1.6rem which is 1.6*10 i.e. 16 px 
-    THIS IS THE ONLY PLACE TO USE px ALL OTHER USES rem
-    change here and ONLY here so ALL rem based dimensions : font-size , padding , ... 
-    will have diffrent pixel size
-
-    This is a pillar of responsive web design
-  */
-  /* font-size: 10px; -> not used because it will not allow the user to change in browser 
-       default brwoser is 16px so to get 10px we use 10*100/16 = 62.5%
-    */
-  font-size: 62.5%; }
-
-/* nameing conventions used here is  BEM : Block , Element , Modifier */
-/* following are font properties , they are inherited (but not all of them) so can be done in body and 
-    inheritd by its ancestors */
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  /* it cause a slider because look like box-sizing is*/
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  /* gradient + background image*/
-  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  /* background-size: cover -> responsive background width to some extent */
-  background-size: cover;
-  /* background-position: top --> change height but the top background will stay on top and not cropped */
-  background-position: top;
-  /* very nice effect */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo {
-    /* width is set by browser by setting height or vice versa but why */
-    height: 3.5rem; }
-  .header__logo-box {
-    padding-left: 4rem;
-    padding-top: 4rem;
-    /* 
-          following is what Jonas does but i see no reason for this , padding-left, padding-top looks good
-      position : absolute;
-      top:40px;
-      left:40px; */ }
-  .header__text-box {
-    /* why it is working only with position ???   */
-    position: absolute;
-    /* top and left is with relation to the element father */
-    top: 50%;
-    left: 50%;
-    /* -50% relates to the width and height of this element */
-    transform: translate(-50%, -50%);
-    text-align: center; }
-
-/* not working as expected on hover --> why ???? but anyway not used later
- .logo-box :hover {
-  animation: moveInRight 1s ease-out;
-} */
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  /* 
-    animation is a bit shakey at the end so 
-    backface-visibility: hidden will prevent this 
-   */
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    letter-spacing: 3.5rem;
-    font-weight: 400;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    /* animation-delay: 3s; --> start animation after this number */
-    /* animation-iteration-count: 3; ---> perform animation in a loop */
-    animation-timing-function: ease-out; }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    letter-spacing: 1.75rem;
-    font-weight: 700;
-    animation: moveInRight 1s ease-out; }
-
 /* appears from left to right */
 @keyframes moveInLeft {
   0% {
@@ -124,6 +28,76 @@ body {
     opacity: 1;
     transform: translateX(0); } }
 
+/* appears from bottom to top */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+  /*  we give border-box in body */ }
+
+html {
+  /* 
+    use 10px so it will be easy to compute e.g. in body 1.6rem which is 1.6*10 i.e. 16 px 
+    THIS IS THE ONLY PLACE TO USE px ALL OTHER USES rem
+    change here and ONLY here so ALL rem based dimensions : font-size , padding , ... 
+    will have diffrent pixel size
+
+    This is a pillar of responsive web design
+  */
+  /* font-size: 10px; -> not used because it will not allow the user to change in browser 
+       default brwoser is 16px so to get 10px we use 10*100/16 = 62.5%
+    */
+  font-size: 62.5%; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* 
+      animation is a bit shakey at the end so 
+      backface-visibility: hidden will prevent this 
+     */
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    letter-spacing: 3.5rem;
+    font-weight: 400;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* animation-delay: 3s; --> start animation after this number */
+    /* animation-iteration-count: 3; ---> perform animation in a loop */
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 1.75rem;
+    font-weight: 700;
+    animation: moveInRight 1s ease-out; }
+
+/* nameing conventions used here is  BEM : Block , Element , Modifier */
+/* following are font properties , they are inherited (but not all of them) so can be done in body and 
+    inheritd by its ancestors */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  /* it cause a slider because look like box-sizing is*/
+  box-sizing: border-box; }
+
 .btn {
   text-transform: uppercase;
   text-decoration: none;
@@ -145,7 +119,7 @@ body {
     transform: translateY(-0.3rem);
     /* box-shadow : horizontal offset , vertical offset , blur , spread */
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6); }
-    .btn:hover:hover::after {
+    .btn:hover::after {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
   .btn:active {
@@ -172,11 +146,38 @@ body {
     animation: moveInBottom 0.5s ease-out;
     /*not clear why Jonas use this animation-fill-mode: backwards; */ }
 
-/* appears from bottom to top */
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
+.header {
+  height: 95vh;
+  /* gradient + background image*/
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  /* background-size: cover -> responsive background width to some extent */
+  background-size: cover;
+  /* background-position: top --> change height but the top background will stay on top and not cropped */
+  background-position: top;
+  /* very nice effect */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo {
+    /* width is set by browser by setting height or vice versa but why */
+    height: 3.5rem; }
+  .header__logo-box {
+    padding-left: 4rem;
+    padding-top: 4rem;
+    /* 
+            following is what Jonas does but i see no reason for this , padding-left, padding-top looks good
+        position : absolute;
+        top:40px;
+        left:40px; */ }
+  .header__text-box {
+    /* why it is working only with position ???   */
+    position: absolute;
+    /* top and left is with relation to the element father */
+    top: 50%;
+    left: 50%;
+    /* -50% relates to the width and height of this element */
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+/* not working as expected on hover --> why ???? but anyway not used later
+ .logo-box :hover {
+  animation: moveInRight 1s ease-out;
+} */
