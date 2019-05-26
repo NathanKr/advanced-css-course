@@ -12,6 +12,7 @@
     margin-bottom: $gutter-vertical;
   }
 
+  
   .col-1-of-2 {
     // # is required for sass
     width: calc((100% - #{$gutter-horizontal}) / 2);
@@ -22,4 +23,7 @@
       margin-right: $gutter-horizontal;
     }
   }
+
+  // row height is zero because its children are float , to fix this we use clearfix
+  @include clearfix;
 }

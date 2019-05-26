@@ -158,6 +158,10 @@ body {
     float: left; }
     .row .col-1-of-2:not(:last-child) {
       margin-right: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
 
 .header {
   height: 95vh;

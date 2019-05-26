@@ -1,0 +1,8 @@
+@mixin clearfix{
+    &::after{
+       content:""; //  content is must even if empty
+       display: table; //  not clear why it is needed
+       clear: both;
+      } 
+}
+
