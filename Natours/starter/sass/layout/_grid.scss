@@ -2,7 +2,7 @@
   // in _base.scss we have font-size default is 10px so in this case 114 rem is 1140px
   // according to jonas 114 rem is common for grid
   max-width: $grid-width;
-  background-color: #eee;
+  // background-color: #eee;
 
   // center grid horizontally : margin-left and margin-right are set to auto so browser will make the same
   margin: 0 auto;
@@ -14,7 +14,7 @@
 
   // select element with class that start with col-
   [class^="col-"]{
-    background-color: orangered;
+    // background-color: orangered;
     float: left;
 
     &:not(:last-child) {
