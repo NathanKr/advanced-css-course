@@ -1,8 +1,11 @@
 .btn {
   text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
   display: inline-block;
+  text-decoration: none;
+  // why is it needed ? it is inherited
+  font-size: $default-font-size;
+
+  padding: 1.5rem 4rem;
   border-radius: 10rem;
   /* position is relative because btn::after is considered a child of btn 
      and we want him to be absolute which is measued from neareset relatibe ancestor */
@@ -31,7 +34,7 @@
     }
   }
 
-  /* button is active on click */
+  /* active -> on click */
   &:active {
     transform: translateY(0.1rem);
     /* box-shadow : horizontal offset , vertical offset , blur , spread */
@@ -51,15 +54,11 @@
     left: 0;
     z-index: -1;
   }
-  
-
-  
 
   &--animated {
     animation: moveInBottom 0.5s ease-out;
     /*not clear why Jonas use this animation-fill-mode: backwards; */
   }
-
 
   &--animated {
     animation: moveInBottom 0.5s ease-out;
@@ -67,5 +66,26 @@
   }
 }
 
+.btn-text {
+  color: $color-primary;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid $color-primary;
+  padding: 0.3rem;
+  // why is it needed ? it is inherited
+  font-size: $default-font-size;
+  transition: all 1.0s;
 
+  &:hover {
+    background-color: $color-primary;
+    color:$color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform:translateY(-3px);
+  }
 
+  /* active -> on click */
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform:translateY(0px);
+  }
+}
