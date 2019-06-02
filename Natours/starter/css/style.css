@@ -201,16 +201,21 @@ body {
 
 .composition {
   position: relative; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.9) translateY(-0.5rem); }
   .composition__photo {
     width: 55%;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
     border-radius: 0.2rem;
     position: absolute;
-    z-index: 0; }
+    z-index: 0;
+    transition: all 0.2s;
+    outline-offset: 1.5rem; }
     .composition__photo:hover {
       transform: scale(1.05);
       box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
-      z-index: 1; }
+      z-index: 1;
+      outline: 1.5rem solid #55c57a; }
     .composition__photo--p1 {
       left: 0;
       top: -2rem; }
