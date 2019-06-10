@@ -1,0 +1,54 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    // because by default font-family is not inherited
+    font-family: inherit;
+    color: inherit;
+
+    padding: 1.5rem 2rem;
+    border-radius: 0.2rem;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 0.3rem solid transparent;
+    width: 90%;
+    // display:block so label will be below
+    display: block;
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+
+    &:focus {
+      // will not show a border on input when focus
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 0.3rem solid $color-primary;
+    }
+
+    // invliad is when e.g. the input has required property but is empty
+    &:focus:invalid {
+      border-bottom: 0.3rem solid $color-secondary-dark;
+    }
+  }
+
+  &__input:placeholder-shown + &__label {
+    //   opacity is used for anmiation
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    // for some reason placeholder-shown not working if you dont use block
+    display: block;
+    transition: all 0.5s;
+      }
+}

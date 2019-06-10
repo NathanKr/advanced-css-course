@@ -16,6 +16,7 @@
     background-position: top;
   
     /* very nice effect */
+    -webkit-clip-path:  polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   
     // translated to .header__logo

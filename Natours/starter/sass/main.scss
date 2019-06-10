@@ -4,19 +4,22 @@
 
 // first base is the base directory , second base is the _base.scss file
 @import "base/animations";
-@import "base/base" ;
+@import "base/base";
 @import "base/typeography";
 @import "base/utilities";
 
+@import "components/bg-video";
 @import "components/button";
+@import "components/card";
 @import "components/composition";
+@import "components/feature-box";
+@import "components/form";
+@import "components/story";
 
 @import "layout/grid";
 @import "layout/header";
 
 @import "pages/home";
-
-
 
 /* not working as expected on hover --> why ???? but anyway not used later
  .logo-box :hover {

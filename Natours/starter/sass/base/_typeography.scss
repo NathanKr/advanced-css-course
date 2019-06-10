@@ -60,6 +60,7 @@ body {
   color:transparent;
   // this will make the background to appear inside the text - which has transparant color
   -webkit-background-clip: text;
+  background-clip: text;/* added to remove warning */
   letter-spacing: 0.2rem;
  
 
