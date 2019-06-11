@@ -1,4 +1,8 @@
 .btn {
+  & ,
+  &:link ,
+  &:visited
+  {
   text-transform: uppercase;
   display: inline-block;
   text-decoration: none;
@@ -10,6 +14,11 @@
   /* position is relative because btn::after is considered a child of btn 
      and we want him to be absolute which is measued from neareset relatibe ancestor */
   position: relative;
+
+  // change for button element
+  border:none;
+  cursor:pointer;
+}
 
   &--white {
     background-color: $color-white;
@@ -46,7 +55,9 @@
   }
 
   /* active -> on click */
-  &:active {
+  &:active , &:focus {
+    outline:none;
+
     transform: translateY(0.1rem);
     /* box-shadow : horizontal offset , vertical offset , blur , spread */
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.6);
