@@ -1,6 +1,5 @@
 // _base.scss is a partial sass file : it starts with _ and can be imported to other sass files
 
-
 *,
 *::after,
 *::before {
@@ -23,6 +22,36 @@ html {
        default brwoser is 16px so to get 10px we use 10*100/16 = 62.5%
     */
 
-  font-size: 62.5%;
+  // for default browser of 16px this will give 1rem equal 10px
+  font-size: 62.5%; 
+
+  // @include respond-phone {
+  //   font-size: 50%;
+  // }
+
+  // for some reason he is not using it @include respond(phone){
+  //   font-size: 50%;
+  // }
+
+   @include respond(tab-land){ // apply when width < 1200px
+    font-size: 56.25%; //  we want e.g. 1 rem = 8px so font-size 9/16 -> 56.25%
+  }
+
+  @include respond(tab-port){ // apply when  width < 900 px
+    font-size: 50%; //  we want e.g. 1 rem = 8px so font-size is 8/16 -> 50%
+  }
+
+  @include respond(big-desktop){ // apply when width > 1800px
+    font-size: 75%; //  we want e.g. 1 rem = 12px so font-size 12/16 -> 75%
+  }
 }
 
+body{
+  box-sizing: border-box;
+  padding: 3rem; /* it cause a slider because look like box-sizing is*/
+  
+  @include respond(tab-port) {
+    padding: 0;
+  }
+
+}

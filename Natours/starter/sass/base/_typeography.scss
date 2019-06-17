@@ -13,6 +13,8 @@
   backface-visibility: hidden;
   margin-bottom: 6rem;
 
+ 
+
   // translated to .heading-primary--main
   &--main {
     display: block;
@@ -24,6 +26,12 @@
     /* animation-delay: 3s; --> start animation after this number */
     /* animation-iteration-count: 3; ---> perform animation in a loop */
     animation-timing-function: ease-out;
+
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 5rem;
+    }
+
   }
 
   // translated to .heading-primary--sub
@@ -33,6 +41,9 @@
     letter-spacing: 1.75rem;
     font-weight: 700;
     animation: moveInRight 1s ease-out;
+    @include respond(phone) {
+      letter-spacing: .5rem;
+    }
   }
 }
 
@@ -46,8 +57,7 @@ body {
   font-size: $default-font-size;
   line-height: 1.7;
   color: $color-grey-dark;
-  padding: 3rem; /* it cause a slider because look like box-sizing is*/
-  box-sizing: border-box;
+  
 }
 
 
@@ -63,6 +73,13 @@ body {
   background-clip: text;/* added to remove warning */
   letter-spacing: 0.2rem;
  
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.5rem;
+  }
 
   &:hover{
     transform: skewY(2deg) skewX(15deg) scale(1.1);

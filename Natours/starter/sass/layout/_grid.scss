@@ -4,12 +4,21 @@
   max-width: $grid-width;
   // background-color: #eee;
 
+  @include respond(tab-port){
+    max-width: 50%;
+    padding : 0 3rem;
+  }
+
   // center grid horizontally : margin-left and margin-right are set to auto so browser will make the same
   margin: 0 auto;
 
   &:not(:last-child) {
     // trial and error i saw that order is important -> margin-bottom after margin override it
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port){
+      margin-bottom:$gutter-vertical-small;
+    }
   }
 
   // select element with class that start with col-
@@ -19,6 +28,15 @@
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+
+      @include respond(tab-port){
+        margin-right:0;
+        margin-bottom:$gutter-vertical-small;
+      }
+    }
+
+    @include respond(tab-port){
+      width : 100% !important;
     }
   }
 
